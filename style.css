@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@600&display=swap');
+
+:root {
+  --bg: #FAF7F2;       /* fundo bege claro */
+  --primary: #C6A98B;  /* bege/marrom suave */
+  --accent: #E9D7C3;   /* tom madeira clara */
+  --muted: #6E6B66;    /* cinza quente */
+  --btn: #A77B5B;      /* marrom médio */
+}
+
+body {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  background: var(--bg);
+  color: var(--muted);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: white;
+  position: sticky;
+  top: 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  z-index: 1000;
+}
+
+.logo h1 {
+  margin: 0;
+  color: var(--primary);
+  font-family: 'Poppins', sans-serif;
+}
+
+.logo .crp {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.hero {
+  padding: 3rem 2rem;
+  background: linear-gradient(135deg, var(--accent), #fff);
+}
+
+.hero-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+}
+
+.hero-text {
+  flex: 1;
+}
+
+.hero-text h2 {
+  font-family: 'Poppins', sans-serif;
+  color: var(--primary);
+  font-size: 2rem;
+}
+
+.btn {
+  background: var(--btn);
+  color: white;
+  padding: 0.8rem 1.4rem;
+  border-radius: 30px;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background: #8d654a;
+}
+
+.hero-image img {
+  width: 300px;
+  border-radius: 50%;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.sobre, .atuacao, .contato {
+  padding: 2rem;
+}
+
+.sobre-image img {
+  width: 300px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.atuacao {
+  background: var(--accent);
+}
+
+.atuacao-cards {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.card {
+  background: white;
+  padding: 1rem;
+  flex: 1;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+}
+
+.atuacao-image img {
+  width: 300px;
+  border-radius: 12px;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.whatsapp-float {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  background: #25d366;
+  color: white;
+  font-size: 1.5rem;
+  padding: 0.7rem;
+  border-radius: 50%;
+  text-align: center;
+  text-decoration: none;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.7s ease;
+}
+
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.instagram-btn {
+    display: inline-block;
+    background: #E1306C; /* cor oficial do Instagram */
+    color: white;
+    padding: 0.6rem 1rem;
+    border-radius: 25px;
+    font-weight: bold;
+    text-decoration: none;
+    margin: 0.5rem 0 1rem;
+    transition: 0.3s;
+}
+
+.instagram-btn:hover {
+    background: #c22659;
+}
+       

@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Psicóloga Camila Muniz</title>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+    :root {
+        --bg: #FAF7F2;
+        --primary: #C6A98B;
+        --accent: #E9D7C3;
+        --muted: #6E6B66;
+        --btn: #A77B5B;
+        --insta: #E1306C;
+        --whats: #25D366;
+    }
+    body {
+        margin: 0;
+        font-family: 'Open Sans', sans-serif;
+        background: var(--bg);
+        color: var(--muted);
+    }
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        background: white;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+    .logo h1 {
+        margin: 0;
+        color: var(--primary);
+        font-family: 'Poppins', sans-serif;
+    }
+    nav ul {
+        list-style: none;
+        display: flex;
+        gap: 1rem;
+        margin: 0;
+        padding: 0;
+    }
+    nav a {
+        text-decoration: none;
+        color: var(--muted);
+        font-weight: 600;
+    }
+    .hero {
+        padding: 3rem 2rem;
+        background: linear-gradient(135deg, var(--accent), #fff);
+        text-align: center;
+    }
+    .hero img {
+        width: 250px;
+        border-radius: 50%;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        margin-bottom: 1rem;
+        transition: transform 0.4s ease;
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    .hero img.show {
+        opacity: 1;
+        transform: translateY(0);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .hero img:hover {
+        transform: scale(1.05);
+    }
+    .hero h2 {
+        font-family: 'Poppins', sans-serif;
+        color: var(--primary);
+        font-size: 2rem;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+        min-height: 48px;
+    }
+    .hero h2.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    .btn {
+        background: var(--btn);
+        color: white;
+        padding: 0.8rem 1.4rem;
+        border-radius: 30px;
+        text-decoration: none;
+        display: inline-block;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .btn.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    .btn:hover {
+        background: #8d654a;
+    }
+    section {
+        padding: 2rem;
+        text-align: center;
+    }
+    .sobre img, .atuacao img {
+        width: 300px;
+        border-radius: 12px;
+        box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        margin: 1rem;
+        transition: transform 0.4s ease;
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    .sobre img.show, .atuacao img.show {
+        opacity: 1;
+        transform: translateY(0);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .sobre img:hover, .atuacao img:hover {
+        transform: scale(1.05);
+    }
+    .atuacao-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+    .card {
+        background: white;
+        padding: 1rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .card.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    footer {
+        background-color: var(--primary);
+        color: white;
+        padding: 2rem 1rem 0;
+    }
+    .footer-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 2rem;
+        max-width: 1100px;
+        margin: auto;
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .footer-container.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    .footer-left h3 {
+        margin-bottom: 1rem;
+        font-family: 'Poppins', sans-serif;
+    }
+    .footer-left h3 span {
+        font-size: 0.9rem;
+    }
+    .whatsapp-btn, .instagram-btn {
+        display: inline-block;
+        padding: 0.6rem 1rem;
+        border-radius: 25px;
+        font-weight: bold;
+        text-decoration: none;
+        margin: 0.5rem 0.3rem 1rem 0;
+        transition: 0.3s;
+    }
+    .whatsapp-btn {
+        background: white;
+        color: var(--primary);
+    }
+    .whatsapp-btn:hover {
+        background: var(--accent);
+    }
+    .instagram-btn {
+        background: var(--insta);
+        color: white;
+    }
+    .instagram-btn:hover {
+        background: #c22659;
+    }
+    .footer-right .aviso {
+        background: var(--bg);
+        padding: 1rem;
+        border-radius: 6px;
+        color: #333;
+        font-size: 0.9rem;
+    }
+    .footer-bottom {
+        text-align: center;
+        margin-top: 1rem;
+        padding: 1rem 0;
+        font-size: 0.8rem;
+        background-color: var(--btn);
+    }
+    .float-btn {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        z-index: 2000;
+    }
+    .float-btn a {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.5rem;
+        text-decoration: none;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    .float-btn .whats { background: var(--whats); }
+    .float-btn .insta { background: var(--insta); }
+</style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <h1>Camila Muniz</h1>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#ofereco">O que ofereço</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="hero">
+    <img src="foto1.jpg" alt="Camila Muniz" class="fade-img" loading="lazy">
+    <h2 id="type-text"></h2>
+    <a href="https://wa.me/5565992194929" class="btn">Agendar Consulta</a>
+</section>
+
+<section id="sobre" class="sobre">
+    <h2>Sobre Mim</h2>
+    <img src="foto2.jpg" alt="Camila Muniz trabalhando" class="fade-img" loading="lazy">
+    <p>Sou <strong>Camila Muniz</strong>, psicóloga clínica (CRP 18/7282) com formação na <em>Abordagem Centrada na Pessoa (ACP)</em>. Trabalho para criar um espaço seguro e acolhedor, onde você possa se redescobrir, resgatar sua autoconfiança e transformar seus relacionamentos.</p>
+    <p>Atendo adultos, casais e famílias, presencialmente em Cuiabá e também online, com horários flexíveis para atender à sua rotina.</p>
+</section>
+
+<section id="ofereco" class="atuacao">
+    <h2>O que ofereço</h2>
+    <div class="atuacao-cards">
+        <div class="card"><h4>Ansiedade</h4><p>Aprenda a lidar com crises e viva com mais leveza e equilíbrio emocional.</p></div>
+        <div class="card"><h4>Autoestima</h4><p>Redescubra seu valor e fortaleça sua autoconfiança.</p></div>
+        <div class="card"><h4>Relacionamentos</h4><p>Construa vínculos mais saudáveis e duradouros.</p></div>
+        <div class="card"><h4>Desenvolvimento Pessoal</h4><p>Descubra seu potencial e conquiste uma vida mais plena.</p></div>
+    </div>
+    <img src="foto3.jpg" alt="Camila Muniz lendo" class="fade-img" loading="lazy">
+</section>
+
+<footer id="contato">
+    <div class="footer-container">
+        <div class="footer-left">
+            <h3>Psicóloga Camila Muniz<br><span>CRP 18/7282</span></h3>
+            <a href="https://wa.me/5565992194929" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i> Fale comigo</a>
+            <a href="https://www.instagram.com/camilamunizpsi/" class="instagram-btn" target="_blank"><i class="fab fa-instagram"></i> Siga no Instagram</a>
+            <p class="horario">Atendimento:<br>Segunda à sexta, 13h às 20h</p>
+            <p><i class="fas fa-phone"></i> +55 (65) 99219-4929</p>
+            <p><i class="fas fa-envelope"></i> contato@camilamuniz.com.br</p>
+        </div>
+        <div class="footer-right">
+            <p class="aviso"><strong>Atenção:</strong> Se você estiver em crise, com ideação suicida, ligue para o CVV (188).  
+            Em emergência, procure o hospital mais próximo ou ligue SAMU (192) ou Bombeiros (193).</p>
+        </div>
+    </div>
+    <div class="footer-bottom">© 2025 Camila Muniz. Todos os direitos reservados.</div>
+</footer>
+
+<div class="float-btn">
+    <a href="https://wa.me/5565992194929" target="_blank" class="whats"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://www.instagram.com/camilamunizpsi/" target="_blank" class="insta"><i class="fab fa-instagram"></i></a>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const footer = document.querySelector(".footer-container");
+    const cards = document.querySelectorAll(".card");
+    const fadeImgs = document.querySelectorAll(".fade-img");
+    const heroBtn = document.querySelector(".hero .btn");
+    const typeText = document.getElementById("type-text");
+
+    function revealOnScroll() {
+        if (footer.getBoundingClientRect().top < window.innerHeight - 50) {
+            footer.classList.add("show");
+        }
+        cards.forEach(card => {
+            if (card.getBoundingClientRect().top < window.innerHeight - 50) {
+                card.classList.add("show");
+            }
+        });
+        fadeImgs.forEach(img => {
+            if (img.getBoundingClientRect().top < window.innerHeight - 50) {
+                img.classList.add("show");
+            }
+        });
+    }
+
+    window.addEventListener("scroll", revealOnScroll);
+    revealOnScroll();
+
+    const text = "Te ajudando a vencer a insegurança e melhorar seus relacionamentos";
+    let index = 0;
+    function typeEffect() {
+        if (index < text.length) {
+            typeText.textContent += text.charAt(index);
+            index++;
+            setTimeout(typeEffect, 50);
+        } else {
+            heroBtn.classList.add("show");
+        }
+    }
+    setTimeout(() => {
+        typeText.classList.add("show");
+        typeEffect();
+    }, 500);
+});
+</script>
+
+</body>
+</html>
